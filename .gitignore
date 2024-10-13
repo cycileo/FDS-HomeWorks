@@ -1,0 +1,13 @@
+# Ignore data directories
+assets/
+images/
+model/
+query/
+
+# Ignore editor files
+.vscode/
+.idea/
+
+# Ignora SO files
+.DS_Store
+Thumbs.db
