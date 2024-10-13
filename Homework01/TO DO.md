@@ -5,7 +5,6 @@
   * **1.0: Warm Up** *(1 point)*   to check
   * **1.1: 1D Filters** *(3 points)*   TO FINISH
     * **1.1.1: 1D Filters**   TO DO: consideration on variation of $\sigma$ and filter size
-    * **1.1.4: Check linearity of the filters**   TO DO
   * **1.2: 2D Filters** *(3 points)*    TO DO
 
 * **2: Multi-Scale Image Representations** *(12 points)*    TO DO
