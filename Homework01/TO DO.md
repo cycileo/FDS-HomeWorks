@@ -4,7 +4,7 @@
 * **1: Image Filtering** *(7 points)*
   * **1.0: Warm Up** *(1 point)*   to check
   * **1.1: 1D Filters** *(3 points)*   to check
-  * **1.2: 2D Filters** *(3 points)*    TO DO
+  * **1.2: 2D Filters** *(3 points)*   to check
 
 * **2: Multi-Scale Image Representations** *(12 points)*    TO DO
   * **2.1: Prewitt Operator** *(2 point)*
