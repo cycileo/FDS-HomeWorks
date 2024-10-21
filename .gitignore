@@ -1,9 +1,3 @@
-# Ignore data directories
-assets/
-images/
-model/
-query/
-
 # Ignore editor files
 .vscode/
 .idea/
