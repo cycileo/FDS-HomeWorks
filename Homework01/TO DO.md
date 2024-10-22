@@ -1,17 +1,9 @@
 **Outline and Scores for #1 Homework:**
 
 
-* **1: Image Filtering** *(7 points)*
-  * **1.0: Warm Up** *(1 point)*   to check
-  * **1.1: 1D Filters** *(3 points)*   to check
-  * **1.2: 2D Filters** *(3 points)*   to check
+* **1: Image Filtering** *(7 points)* OK
 
-* **2: Multi-Scale Image Representations** *(12 points)*    TO DO
-  * **2.1: Prewitt Operator** *(2 point)*
-  * **2.2: Canny Edge Detector and Template Matching** *(4 points)*
-  * **2.3: Harris Corner Detector** *(2 points)*
-  * **2.4: Gaussian Pyramid and Aliasing** *(2 points)*
-  * **2.5: Multi-Scale Template Matching** *(2 points)*
+* **2: Multi-Scale Image Representations** *(12 points)* OK
 
 * **3: Object Identification** *(10 points)*    TO DO
   * **3.1: 3D Joint Color Histogram** *(2 points)*
