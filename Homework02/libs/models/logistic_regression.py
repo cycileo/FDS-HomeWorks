@@ -3,7 +3,8 @@ from libs.math import sigmoid
 
 class LogisticRegression:
     def __init__(self, num_features : int):
-        self.parameters = np.random.normal(0, 0.01, num_features)
+        # self.parameters = np.random.normal(0, 0.01, num_features)
+        self.parameters = np.array([-0.01062133, 0.09915262, 0.09556893])
         
     def predict(self, x:np.array) -> np.array:
         """
@@ -75,4 +76,9 @@ class LogisticRegression:
         gradient = np.dot(x.T, (y - preds)) / len(y)
         ##############################
         return gradient
+    
+    # Print model parameters, added for debug and report 1
+    @staticmethod
+    def print_params(self):
+        print("params", self.parameters)
 

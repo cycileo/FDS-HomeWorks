@@ -18,8 +18,14 @@ def fit(model, x : np.array, y : np.array, x_val:np.array = None, y_val:np.array
     """
     likelihood_history = np.zeros(num_steps)
     val_loss_history = np.zeros(num_steps)
+    log_gap_history = np.zeros(num_steps - 1)
+    zero_gap = False
 
     for it in range(num_steps):
+
+        # Print initial params (used for report 1)
+        if it == 0: model.print_params()
+
         ##############################
         ###     START CODE HERE    ###
         ##############################
@@ -27,6 +33,11 @@ def fit(model, x : np.array, y : np.array, x_val:np.array = None, y_val:np.array
         preds = model.predict(x)
         # Compute and save the likelihood for the current iteration
         likelihood_history[it] = model.likelihood(preds, y)
+
+        # Compute how much loglikelihood has changed since last iteration (used for report 1)
+        if it != 0 and not zero_gap: 
+            log_gap_history[it-1] = likelihood_history[it - 1] - likelihood_history[it]
+
         # Compute the gradients of the log likelihood
         gradient = model.compute_gradient(x, y, preds)
         # Update the parameters
@@ -38,5 +49,9 @@ def fit(model, x : np.array, y : np.array, x_val:np.array = None, y_val:np.array
             val_preds = model.predict(x_val)
             val_loss_history[it] = - model.likelihood(val_preds, y_val)
 
-    return likelihood_history, val_loss_history
+        # Print final params (used for report 1)
+        if it == num_steps - 1: model.print_params()
+
+    # return changed, added log_gap_history which track how loglikelihood values change over iteration (used for report 1)
+    return likelihood_history, val_loss_history, log_gap_history
 
