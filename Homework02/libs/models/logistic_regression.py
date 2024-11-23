@@ -3,8 +3,7 @@ from libs.math import sigmoid
 
 class LogisticRegression:
     def __init__(self, num_features : int):
-        # self.parameters = np.random.normal(0, 0.01, num_features)
-        self.parameters = np.array([-0.01062133, 0.09915262, 0.09556893])
+        self.parameters = np.random.normal(0, 0.01, num_features)
         
     def predict(self, x:np.array) -> np.array:
         """
@@ -40,6 +39,10 @@ class LogisticRegression:
         clipped_preds = np.clip(preds, 1e-10, 1 - 1e-10)  # Prevent log(0)
         # Compute the log of likelihood
         log_l = np.mean( y * np.log(clipped_preds) + (1 - y) * np.log(1 - clipped_preds) )
+
+        # Unnormalized log likelihood
+        # log_l =  np.sum(y * np.log(clipped_preds) + (1 - y) * np.log(1 - clipped_preds))
+
         ##############################
         return log_l
     
@@ -74,11 +77,10 @@ class LogisticRegression:
         """
         ##############################
         gradient = np.dot(x.T, (y - preds)) / len(y)
+
+        # Unnormalized gradient
+        # gradient = np.dot(x.T, (y - preds))
+
         ##############################
         return gradient
-    
-    # Print model parameters, added for debug and report 1
-    @staticmethod
-    def print_params(self):
-        print("params", self.parameters)
 
