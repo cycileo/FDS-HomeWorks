@@ -18,7 +18,8 @@ class SoftmaxClassifier(LogisticRegression):
             scores: it's the matrix containing raw scores for each sample and each class. The shape is (N, K)
         """
         ##############################
-        ###     YOUR CODE HERE     ###
+        linear_combination = np.dot(X, self.parameters)
+        scores = softmax(linear_combination)
         ##############################
         return scores
     
@@ -33,9 +34,11 @@ class SoftmaxClassifier(LogisticRegression):
             preds: it's the predicted class for each sample. The shape is (N,)
         """
         ##############################
-        ###     YOUR CODE HERE     ###
+        
+        scores = self.predict(X)
         ##############################
-        return preds
+        # return indexes of max probability for each row, meaning the predicted class
+        return np.argmax(scores, axis=1)
     
     @staticmethod
     def likelihood(preds: np.array, y_onehot: np.array) -> float:
@@ -50,7 +53,12 @@ class SoftmaxClassifier(LogisticRegression):
             loss: The scalar that is the mean error for each sample.
         """
         ##############################
-        ###     YOUR CODE HERE     ###
+        
+        loss = 0
+        # Clip the predictions to prevent log(0)
+        clipped_preds = np.clip(preds, 1e-10, 1 - 1e-10)  # Prevent log(0)
+        loss = - np.mean(np.sum(y_onehot * np.log(clipped_preds), axis=1))
+
         ##############################
         return loss
     
@@ -66,9 +74,8 @@ class SoftmaxClassifier(LogisticRegression):
             None
         """
         ##############################
-        ###     YOUR CODE HERE     ###
+        self.parameters += lr * gradient
         ##############################
-        pass
     
     @staticmethod
     def compute_gradient(x: np.array, y : np.array, preds: np.array) -> np.array:
@@ -84,7 +91,9 @@ class SoftmaxClassifier(LogisticRegression):
             jacobian: A matrix with the partial derivatives of the loss. The shape is (H, K)
         """
         ##############################
-        ###     YOUR CODE HERE     ###
+
+        jacobian = np.dot(x.T, (y - preds)) / x.shape[0]
+
         ##############################
         return jacobian
     

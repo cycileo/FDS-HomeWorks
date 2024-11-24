@@ -21,6 +21,8 @@ def fit(model, x : np.array, y : np.array, x_val:np.array = None, y_val:np.array
 
     for it in range(num_steps):
 
+        print("Step:", it)
+
         # Print initial params (DEBUG)
         # if it == 0: print("Initial Params", model.parameters)
 
