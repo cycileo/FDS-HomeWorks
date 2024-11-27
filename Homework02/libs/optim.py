@@ -1,6 +1,8 @@
 import numpy as np
+from tqdm import tqdm
 
-def fit(model, x : np.array, y : np.array, x_val:np.array = None, y_val:np.array = None, lr: float = 0.5, num_steps : int = 500):
+
+def fit(model, x : np.array, y : np.array, x_val:np.array = None, y_val:np.array = None, lr: float = 0.5, num_steps : int = 500, show = False):
     """
     Function to fit the logistic regression model using gradient ascent.
 
@@ -19,9 +21,12 @@ def fit(model, x : np.array, y : np.array, x_val:np.array = None, y_val:np.array
     likelihood_history = np.zeros(num_steps)
     val_loss_history = np.zeros(num_steps)
 
-    for it in range(num_steps):
+    # Wrap the iterator with tqdm conditionally
+    iterator = tqdm(range(num_steps), desc="Training Progress") if show else range(num_steps)
 
-        print("Step:", it)
+    for it in iterator:
+
+        #print("Step:", it)
 
         # Print initial params (DEBUG)
         # if it == 0: print("Initial Params", model.parameters)
