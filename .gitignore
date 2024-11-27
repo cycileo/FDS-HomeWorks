@@ -11,3 +11,12 @@ __pycache__/
 
 .ipynb_checkpoints/
 Homework02/assets/cifar10
+Homework02/data/cifar-10-python.tar.gz
+Homework02/data/cifar-10-batches-py/batches.meta
+Homework02/data/cifar-10-batches-py/data_batch_1
+Homework02/data/cifar-10-batches-py/data_batch_2
+Homework02/data/cifar-10-batches-py/data_batch_3
+Homework02/data/cifar-10-batches-py/data_batch_4
+Homework02/data/cifar-10-batches-py/data_batch_5
+Homework02/data/cifar-10-batches-py/readme.html
+Homework02/data/cifar-10-batches-py/test_batch
