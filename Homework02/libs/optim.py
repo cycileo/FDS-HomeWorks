@@ -26,11 +26,6 @@ def fit(model, x : np.array, y : np.array, x_val:np.array = None, y_val:np.array
 
     for it in iterator:
 
-        #print("Step:", it)
-
-        # Print initial params (DEBUG)
-        # if it == 0: print("Initial Params", model.parameters)
-
         ##############################
         ###     START CODE HERE    ###
         ##############################
@@ -49,10 +44,6 @@ def fit(model, x : np.array, y : np.array, x_val:np.array = None, y_val:np.array
         if x_val is not None and y_val is not None:
             val_preds = model.predict(x_val)
             val_loss_history[it] = - model.likelihood(val_preds, y_val)
-
-        # Print final params (DEBUG)
-        # if it == num_steps - 1: print("Final Params", model.parameters)
-
-    # return changed, added log_gap_history which track how loglikelihood values change over iteration (used for report 1)
+            
     return likelihood_history, val_loss_history
 

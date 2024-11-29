@@ -40,9 +40,6 @@ class LogisticRegression:
         # Compute the log of likelihood
         log_l = np.mean( y * np.log(clipped_preds) + (1 - y) * np.log(1 - clipped_preds) )
 
-        # Unnormalized log likelihood
-        # log_l =  np.sum(y * np.log(clipped_preds) + (1 - y) * np.log(1 - clipped_preds))
-
         ##############################
         return log_l
     
